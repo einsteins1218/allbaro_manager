@@ -89,7 +89,8 @@ public class StartScheduleMain {
 			
 			// 매일 오전 3시 40분에서 4시 0분 사이의 랜덤한 시간에 실행
 			JobDetail t200_4001_01 = new JobDetail("T200_4001_01_JOB", Scheduler.DEFAULT_GROUP, T200_4001_01.class);
-			CronTrigger t200_4001_01_trigger = new CronTrigger("T200_4001_01_CRON", Scheduler.DEFAULT_GROUP, String.valueOf(random.nextInt(60)) + " " + String.valueOf(random.nextInt(20) + 40) + " 3 * * ?");
+			//CronTrigger t200_4001_01_trigger = new CronTrigger("T200_4001_01_CRON", Scheduler.DEFAULT_GROUP, String.valueOf(random.nextInt(60)) + " " + String.valueOf(random.nextInt(20) + 40) + " 3 * * ?");
+			CronTrigger t200_4001_01_trigger = new CronTrigger("T200_4001_01_CRON", Scheduler.DEFAULT_GROUP, "45 * * * * ?");
 			
 			scheduler.scheduleJob(t200_4001_01, t200_4001_01_trigger);
 			
@@ -223,9 +224,14 @@ public class StartScheduleMain {
 	
 	public static void main(String[] args) {
 		StartScheduleMain main = new StartScheduleMain();
-		main.getCmmnScheduler();
+		
+		System.out.println("실행!!!!!!");
+		
+//		main.getCmmnScheduler();
 		main.getEmisScheduler();
-		main.getTranScheduler();
-		main.getTrtmScheduler();
+//		main.getTranScheduler();
+//		main.getTrtmScheduler();
+		
+		System.out.println("실행2!!!!!!");
 	}
 }

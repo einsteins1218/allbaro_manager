@@ -1,0 +1,11 @@
+C:\Users\CJ4DPLEX\source\repos\allbaroManager\allbaroManager\bin\Debug\allbaroManager.exe.config
+C:\Users\CJ4DPLEX\source\repos\allbaroManager\allbaroManager\bin\Debug\allbaroManager.exe
+C:\Users\CJ4DPLEX\source\repos\allbaroManager\allbaroManager\bin\Debug\allbaroManager.pdb
+C:\Users\CJ4DPLEX\source\repos\allbaroManager\allbaroManager\bin\Debug\Newtonsoft.Json.dll
+C:\Users\CJ4DPLEX\source\repos\allbaroManager\allbaroManager\bin\Debug\Newtonsoft.Json.xml
+C:\Users\CJ4DPLEX\source\repos\allbaroManager\allbaroManager\obj\Debug\allbaroManager.csproj.AssemblyReference.cache
+C:\Users\CJ4DPLEX\source\repos\allbaroManager\allbaroManager\obj\Debug\allbaroManager.csproj.SuggestedBindingRedirects.cache
+C:\Users\CJ4DPLEX\source\repos\allbaroManager\allbaroManager\obj\Debug\allbaroManager.csproj.CoreCompileInputs.cache
+C:\Users\CJ4DPLEX\source\repos\allbaroManager\allbaroManager\obj\Debug\allbaroManager.csproj.CopyComplete
+C:\Users\CJ4DPLEX\source\repos\allbaroManager\allbaroManager\obj\Debug\allbaroManager.exe
+C:\Users\CJ4DPLEX\source\repos\allbaroManager\allbaroManager\obj\Debug\allbaroManager.pdb

@@ -88,10 +88,11 @@ public class StartScheduleMain {
 			Random random = new Random();
 			
 			// 매일 오전 3시 40분에서 4시 0분 사이의 랜덤한 시간에 실행
-			JobDetail t200_4001_01 = new JobDetail("T200_4001_01_JOB", Scheduler.DEFAULT_GROUP, T200_4001_01.class);
 			//CronTrigger t200_4001_01_trigger = new CronTrigger("T200_4001_01_CRON", Scheduler.DEFAULT_GROUP, String.valueOf(random.nextInt(60)) + " " + String.valueOf(random.nextInt(20) + 40) + " 3 * * ?");
-			CronTrigger t200_4001_01_trigger = new CronTrigger("T200_4001_01_CRON", Scheduler.DEFAULT_GROUP, "45 * * * * ?");
 			
+			// 매 시간 10초마다 T200_4001_01 인터페이스에 대한 JOB 호출하도록 스케줄러에 등록
+			JobDetail t200_4001_01 = new JobDetail("T200_4001_01_JOB", Scheduler.DEFAULT_GROUP, T200_4001_01.class);
+			CronTrigger t200_4001_01_trigger = new CronTrigger("T200_4001_01_CRON", Scheduler.DEFAULT_GROUP, "10 * * * * ?");
 			scheduler.scheduleJob(t200_4001_01, t200_4001_01_trigger);
 			
 			// 매일 오전 3시 41분에서 4시 0분 사이의 랜덤한 시간에 실행

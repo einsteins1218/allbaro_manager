@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
-
 using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Net;
@@ -110,6 +109,35 @@ namespace allbaroManager
             {
 
                 WebRequest request = WebRequest.Create(targetURL);
+                request.Method = "GET";
+                request.ContentType = "application/json";
+
+                using (WebResponse response = request.GetResponse())
+                using (Stream dataStream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(dataStream))
+                {
+                    responseFromServer = reader.ReadToEnd();
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+
+            return responseFromServer;
+        }
+
+        public static string callWebRequest2()
+        {
+            string responseFromServer = string.Empty;
+
+            try
+            {
+
+                String url = ConfigurationManager.AppSettings["apiURL"];
+
+                WebRequest request = WebRequest.Create(url);
                 request.Method = "GET";
                 request.ContentType = "application/json";
 

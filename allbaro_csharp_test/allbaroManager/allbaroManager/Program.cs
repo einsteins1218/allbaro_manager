@@ -29,31 +29,31 @@ namespace allbaroManager
 
             ////////////////////////////////////////////////////////////////////////
 
-            //1.WebClient 클래스 활용
-            string webClientResult = callWebClient();
+            ////1.WebClient 클래스 활용
+            //string webClientResult = callWebClient();
 
-            var r = JObject.Parse(webClientResult);
+           // var r = JObject.Parse(webClientResult);
 
-            var list = r["list"];
+            //var list = r["list"];
 
-            Console.WriteLine(r);
-            foreach (var o in list)
-            {
-                Console.WriteLine(string.Format("{0} : {1}", "날짜", o["sdate"]));
-                Console.WriteLine(string.Format("{0} : {1}", "전국교통량", o["cjunkook"]));
-                Console.WriteLine(string.Format("{0} : {1}", "지방교통량", o["cjibangDir"]));
-                Console.WriteLine(string.Format("{0} : {1}", "서울->대전 소요시간", o["csudj"]));
-                Console.WriteLine(string.Format("{0} : {1}", "서울->대구 소요시간", o["csudg"]));
-                Console.WriteLine(string.Format("{0} : {1}", "서울->울산 소요시간", o["csuus"]));
-            }
+            //Console.WriteLine(r);
+            //foreach (var o in list)
+            //{
+            //    Console.WriteLine(string.Format("{0} : {1}", "날짜", o["sdate"]));
+            //    Console.WriteLine(string.Format("{0} : {1}", "전국교통량", o["cjunkook"]));
+            //    Console.WriteLine(string.Format("{0} : {1}", "지방교통량", o["cjibangDir"]));
+            //    Console.WriteLine(string.Format("{0} : {1}", "서울->대전 소요시간", o["csudj"]));
+            //    Console.WriteLine(string.Format("{0} : {1}", "서울->대구 소요시간", o["csudg"]));
+            //    Console.WriteLine(string.Format("{0} : {1}", "서울->울산 소요시간", o["csuus"]));
+            //}
 
             Console.WriteLine("*************************************************************");
 
-            string wbRequestResult = callWebRequest();
+            string webClientResult = callWebRequest2();
 
             var r2 = JObject.Parse(webClientResult);
 
-            var list2 = r["list"];
+            var list2 = r2["list"];
 
             Console.WriteLine(r2);
             foreach (var o in list2)
@@ -135,11 +135,72 @@ namespace allbaroManager
             try
             {
 
-                String url = ConfigurationManager.AppSettings["apiURL"];
+                //
+                // ## 예제 A. 인코딩 ##
+                // 문자열을 유니코드 인코딩으로 바이트배열로 변환
+                string s = "John 굿모닝";
+                byte[] bytes = Encoding.Unicode.GetBytes(s);
+
+                // 바이트들을 Base64로 변환
+                string base64 = Convert.ToBase64String(bytes);
+
+                // 출력: SgBvAGgAbgAgAH+tqLrdsg==
+                Console.WriteLine(base64);
+
+
+                // ## 예제 B. 디코딩 ##
+                // Base64 인코드된 문자열을 바이트배열로 변환
+                byte[] orgBytes = Convert.FromBase64String("SgBvAGgAbgAgAH+tqLrdsg==");
+
+                // 바이트들을 다시 유니코드 문자열로
+                string orgStr = Encoding.Unicode.GetString(orgBytes);
+
+                // 출력: John 굿모닝
+                Console.WriteLine(orgStr);
+                //
+
+                String url = ConfigurationManager.AppSettings["apiURL"]+"/select"+ "T100_3001_02";
+                Console.WriteLine(url);
+                String id = ConfigurationManager.AppSettings["userid"];
+                string password = ConfigurationManager.AppSettings["userpassword"];
 
                 WebRequest request = WebRequest.Create(url);
-                request.Method = "GET";
-                request.ContentType = "application/json";
+                request.Method = "POST";
+                request.ContentType = "application/json;charset=utf-8";
+                //request.Headers["Content-Type"] = "application/json;charset=utf-8";
+                //request.Headers["Authorization"] = "Basic "+Convert.ToBase64String(Encoding.UTF8.GetBytes(id+":"+ password));
+                request.Headers.Add("Authorization", "Basic " + Convert.ToBase64String(Encoding.UTF8.GetBytes(id + ":" + password)));
+                Console.WriteLine(request.Headers["Authorization"]);
+
+
+                //https://forum.worksmobile.com/kr/posts/100114
+                String inMsg = " { \"api_cert_key\":\"+WOBv4hD6/ZlhOWctp3U9g==\", \"entn_lkcd\":\"202132969\",\"manf_nums\":\"\",\"page_no\":\"N\", \"req_type\":\"N\", \"period_from_date\":\"\",\"period_to_date\":\"\", \"subcd_include_yn\":\"N\" }";
+
+                byte[] msg = UTF8Encoding.UTF8.GetBytes(inMsg);
+                Console.WriteLine(Encoding.UTF8.GetString(msg));
+                Console.WriteLine(" --------------- \r\n ");
+
+                //request.ContentLength = msg.Length;
+
+
+                /////////////////////////////////////////
+                /////////////////////////////////////////
+                //Stream os = request.GetRequestStream();
+                //os.Write(msg, 0, msg.Length);
+                //os.Close();
+
+
+
+
+
+                /* 업체 발급 인증키 */
+                /* 업체코드 */
+                /* 인계번호 */
+                /* 페이지번호(default: N) */
+                /* 요청구분(default: N) */
+                /* 기간시작일자 */
+                /* 기간종료일자 */
+                /* 하위업체 포함 여부(default: N) */
 
                 using (WebResponse response = request.GetResponse())
                 using (Stream dataStream = response.GetResponseStream())
@@ -151,6 +212,8 @@ namespace allbaroManager
             }
             catch (Exception e)
             {
+            
+                Console.WriteLine("\r\n\r\n");
                 Console.WriteLine(e.ToString());
             }
 

@@ -9,3 +9,11 @@ C:\Users\CJ4DPLEX\source\repos\allbaroManager\allbaroManager\obj\Debug\allbaroMa
 C:\Users\CJ4DPLEX\source\repos\allbaroManager\allbaroManager\obj\Debug\allbaroManager.csproj.CopyComplete
 C:\Users\CJ4DPLEX\source\repos\allbaroManager\allbaroManager\obj\Debug\allbaroManager.exe
 C:\Users\CJ4DPLEX\source\repos\allbaroManager\allbaroManager\obj\Debug\allbaroManager.pdb
+E:\yechan works\repository\allbaro_manager\allbaro_csharp_test\allbaroManager\allbaroManager\bin\Debug\allbaroManager.exe.config
+E:\yechan works\repository\allbaro_manager\allbaro_csharp_test\allbaroManager\allbaroManager\bin\Debug\allbaroManager.exe
+E:\yechan works\repository\allbaro_manager\allbaro_csharp_test\allbaroManager\allbaroManager\bin\Debug\allbaroManager.pdb
+E:\yechan works\repository\allbaro_manager\allbaro_csharp_test\allbaroManager\allbaroManager\bin\Debug\Newtonsoft.Json.dll
+E:\yechan works\repository\allbaro_manager\allbaro_csharp_test\allbaroManager\allbaroManager\bin\Debug\Newtonsoft.Json.xml
+E:\yechan works\repository\allbaro_manager\allbaro_csharp_test\allbaroManager\allbaroManager\obj\Debug\allbaroManager.csproj.CoreCompileInputs.cache
+E:\yechan works\repository\allbaro_manager\allbaro_csharp_test\allbaroManager\allbaroManager\obj\Debug\allbaroManager.exe
+E:\yechan works\repository\allbaro_manager\allbaro_csharp_test\allbaroManager\allbaroManager\obj\Debug\allbaroManager.pdb
